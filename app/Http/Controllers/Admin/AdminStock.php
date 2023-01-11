@@ -34,32 +34,46 @@ class AdminStock extends Controller
             $destinationPath = public_path('/files');
             $image->move($destinationPath, $input['imagename']);
 
-            $news = new Stock();
-            $news->name = $request->name;
-            $news->description = $request->description;
-            $news->logo = $input['imagename'];
-            $news->save();
+            $stock = new Stock();
+            $stock->name = $request->name;
+            $stock->description = $request->description;
+            $stock->logo = $input['imagename'];
+            $stock->save();
             return redirect()->route('admin.stocks.index');
         }
-        $news = new Stock();
-        $news->name = $request->name;
-        $news->description = $request->description;
-        $news->save();
+        $stock = new Stock();
+        $stock->name = $request->name;
+        $stock->description = $request->description;
+        $stock->save();
         return redirect()->route('admin.stocks.index');
     }
 
     public function edit($id)
     {
         $stock = Stock::findOrFail($id);
-        return view('admin.stocks.edit-stock', compact('stock'));
+        return view('admin.stocks.edit', compact('stock'));
     }
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'nullable',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:4048',
+        ]);
         $stock = Stock::findOrFail($id);
-        $data = $this->getData($request);
-        $stock->update($data);
+        if ($request->hasFile('logo')){
+            $image = $request->file('logo');
+            $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/files');
+            $image->move($destinationPath, $input['imagename']);
+
+            $stock->update(['name' => $request->name, 'description' => $request, 'logo' => $input['imagename']]);
+            return redirect()->route('admin.stocks.index');
+        }
+        $stock->update(['name' => $request->name, 'description' => $request]);
         return redirect()->route('admin.stocks.index');
+
     }
 
     public function destroy($id)

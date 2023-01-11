@@ -546,7 +546,7 @@
                                 </a>
                             </li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_ui_grid.html">
+                                <a class="nav-main-link" href="{{ route('admin.stocks.index') }}">
                                     <span class="nav-main-link-name">All Stocks</span>
                                 </a>
                             </li>
