@@ -541,7 +541,7 @@
                         </a>
                         <ul class="nav-main-submenu">
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_ui_icons.html">
+                                <a class="nav-main-link" href="{{ route('admin.stocks.create') }}">
                                     <span class="nav-main-link-name">Add Stocks</span>
                                 </a>
                             </li>
