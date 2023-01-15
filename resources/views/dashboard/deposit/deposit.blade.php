@@ -21,7 +21,7 @@
                         </ul>
                     </div>
                     <div class="buysell-block">
-                        <form action="{{ route('user.process') }}" method="POST" class="buysell-form">
+                        <form action="{{ route('user.processCrypto') }}" method="POST" class="buysell-form">
                             @csrf
 
                             <div class="buysell-field form-group">
@@ -45,27 +45,19 @@
                             </div><!-- .buysell-field -->
                             <div class="buysell-field form-group">
                                 <div class="form-label-group">
-                                    <label class="form-label">Payment Method</label>
+                                    <label class="form-label">Crypto Method</label>
                                 </div>
-                                <div class="form-pm-group">
-                                    <ul class="buysell-pm-list">
-                                        <li class="buysell-pm-item">
-                                            <input class="buysell-pm-control" type="radio" name="deposit_method" value="Crypto" id="pm-paypal">
-                                            <label class="buysell-pm-label" for="pm-paypal">
-                                                <span class="pm-name">Crypto</span>
-                                                <span class="pm-icon"><em class="icon ni ni-coins"></em></span>
-                                            </label>
-                                        </li>
-                                        <li class="buysell-pm-item">
-                                            <input class="buysell-pm-control" type="radio" name="deposit_method" value="Bank-Transfer" id="pm-bank">
-                                            <label class="buysell-pm-label" for="pm-bank">
-                                                <span class="pm-name">Bank Transfer</span>
-                                                <span class="pm-icon"><em class="icon ni ni-building-fill"></em></span>
-                                            </label>
-                                        </li>
+                                <div class="form-control-group">
+                                    <select name="payment_method_id" class="form-control form-control-lg" id="">
+                                        @foreach($payment_m as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="form-dropdown">
+                                        <em class="icon ni ni-coins"></em>
+                                    </div>
+                                </div>
 
-                                    </ul>
-                                </div>
                             </div><!-- .buysell-field -->
                             <div class="buysell-field form-action">
                                 <button type="submit" class="btn btn-lg btn-block btn-primary" data-bs-toggle="modal" >Continue</button>

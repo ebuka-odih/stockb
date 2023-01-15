@@ -12,6 +12,7 @@ Route::group(['middleware' => ['auth', 'verified', 'admin'], 'prefix' => 'admin'
     Route::get('user/withdrawal/method/{id}', "Admin\UserController@userWithdrawMethod")->name('userWithdrawMethod');
     Route::delete('delete/user/{id}', "Admin\UserController@deleteUser")->name('deleteUser');
 
+    Route::resource('wallet', "Admin\PaymentMethodController");
 
     //Stocks Routes
     Route::resource('stocks', 'Admin\AdminStock');

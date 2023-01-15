@@ -575,6 +575,12 @@
 
                     <li class="nav-main-heading">Extend</li>
                     <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{ route('admin.wallet.create') }}">
+                            <i class="nav-main-link-icon fa fa-wallet"></i>
+                            <span class="nav-main-link-name">Add Wallet</span>
+                        </a>
+                    </li>
+                    <li class="nav-main-item">
                         <a class="nav-main-link" data-toggle="submenu" href="#">
                             <i class="nav-main-link-icon fa fa-wrench"></i>
                             <span class="nav-main-link-name">Fund User</span>
