@@ -526,7 +526,7 @@
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link"  href="#">
+                        <a class="nav-main-link"  href="{{ route('admin.users') }}">
                             <i class="nav-main-link-icon fa fa-users"></i>
                             <span class="nav-main-link-name">Users</span>
                         </a>
@@ -560,12 +560,12 @@
                         </a>
                         <ul class="nav-main-submenu">
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_ui_icons.html">
+                                <a class="nav-main-link" href="{{ route('admin.crypto.create') }}">
                                     <span class="nav-main-link-name">Add Crypto</span>
                                 </a>
                             </li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_ui_grid.html">
+                                <a class="nav-main-link" href="{{ route('admin.crypto.index') }}">
                                     <span class="nav-main-link-name">All Crypto</span>
                                 </a>
                             </li>

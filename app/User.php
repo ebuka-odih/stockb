@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Vinkla\Hashids\Facades\Hashids;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -47,4 +47,24 @@ class User extends Authenticatable
     public function referralCode(){
         return Hashids::encode($this->id);
     }
+
+    public function verifiedUser()
+    {
+        if ($this->email_verified_at != null)
+        {
+            return "<span class='badge bg-primary'>Verified</span>";
+        }
+        return "<span class='badge bg-warning'>Not Verified</span>";
+    }
+    public function status()
+    {
+        if ($this->status < 0){
+            return "<span class='badge bg-danger text text-uppercase'>Inactive</span>";
+        }elseif ($this->status >= 0){
+            return "<span class='badge bg-success text text-uppercase'>Active</span>";
+        }else{
+            return "<span class='badge bg-warning text text-uppercase'>Blocked</span>";
+        }
+    }
+
 }

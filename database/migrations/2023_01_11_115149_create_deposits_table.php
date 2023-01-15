@@ -16,7 +16,6 @@ class CreateDepositsTable extends Migration
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('trans_type')->nullable(); # 1 = bitcoin 2 = bank transfer
             $table->decimal('amount', 12, 2);
             $table->integer('status')->default(0);
             $table->string('trans_code')->nullable();
