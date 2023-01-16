@@ -137,7 +137,7 @@
                                     <h6 class="overline-title">Menu</h6>
                                 </li>
                                 <li class="nk-menu-item">
-                                    <a href="html/crypto/index.html" class="nk-menu-link">
+                                    <a href="{{ route('user.dashboard') }}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
                                         <span class="nk-menu-text">Dashboard</span>
                                     </a>

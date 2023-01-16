@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Deposit;
+use App\Mail\AdminDepositAlert;
 use App\Mail\BankDeposit;
 use App\PaymentMethod;
 use Illuminate\Http\Request;
@@ -61,6 +62,27 @@ class DepositController extends Controller
     {
         $deposit = Deposit::findOrFail($id);
         return view('dashboard.deposit.crypto', compact('deposit'));
+    }
+    public function processPayment(Request $request)
+    {
+        $request->validate([
+                'reference' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:7048',
+            ]
+        );
+        if ($request->hasFile('reference')){
+            $image = $request->file('reference');
+            $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/proof');
+            $image->move($destinationPath, $input['imagename']);
+
+            $id = $request->deposit_id;
+            $deposit = Deposit::findOrFail($id);
+            $deposit->update(['reference' => $input['imagename'] ]);
+            Mail::to('admin@whalescorp.io')->send(new AdminDepositAlert($deposit));
+            return redirect()->back()->with('success', "Transaction Sent, Awaiting Approval ");
+        }
+        return redirect()->back()->with('declined', "Please Upload Your Payment Screenshot ");
+
     }
 
 

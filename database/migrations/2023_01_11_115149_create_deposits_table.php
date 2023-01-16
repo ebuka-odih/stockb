@@ -19,6 +19,7 @@ class CreateDepositsTable extends Migration
             $table->decimal('amount', 12, 2);
             $table->integer('status')->default(0);
             $table->string('trans_code')->nullable();
+            $table->string('reference')->nullable();
             $table->bigInteger('payment_method_id')->nullable();
             $table->bigInteger('user_id');
             $table->string('deposit_method')->nullable();

@@ -10,6 +10,23 @@
                         <h2 class="title">Crypto Deposit </h2>
                     </div><!-- .buysell-title -->
                     <br>
+                    @if(session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show">
+                            {{ session()->get('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="buysell-block">
                         <form action="#" class="buysell-form">
                             <div class="buysell-field form-group">
@@ -43,84 +60,39 @@
                 <div class="modal-body modal-body-lg">
                     <div class="nk-block-head nk-block-head-xs text-center">
                         <h5 class="nk-block-title">Confirm Order</h5>
-                        <div class="nk-block-text">
-                            <div class="caption-text">You are about to get <strong>0.5968</strong> BTC for <strong>500.00</strong> USD*</div>
-                            <span class="sub-text-sm">Exchange rate: 1 BTC = 9,804.00 USD</span>
-                        </div>
+
                     </div>
-                    <div class="nk-block">
-                        <div class="buysell-overview">
-                            <ul class="buysell-overview-list">
-                                <li class="buysell-overview-item">
-                                    <span class="pm-title">Pay with</span>
-                                    <span class="pm-currency"><em class="icon ni ni-paypal-alt"></em> <span>PayPal</span></span>
-                                </li>
-                                <li class="buysell-overview-item">
-                                    <span class="pm-title">Total</span>
-                                    <span class="pm-currency">500.00 USD</span>
-                                </li>
-                            </ul>
-                            <div class="sub-text-sm">* Our transaction fee are included. <a href="#">See transaction fee</a></div>
-                        </div>
-                        <div class="buysell-field form-group">
-                            <div class="form-label-group">
-                                <label class="form-label">Choose what you want to get</label>
-                                <a href="#" class="link">Add Wallet</a>
-                            </div>
-                            <input type="hidden" value="btc" name="bs-currency" id="buysell-choose-currency-modal">
-                            <div class="dropdown buysell-cc-dropdown">
-                                <a href="#" class="buysell-cc-chosen dropdown-indicator" data-bs-toggle="dropdown">
-                                    <div class="coin-item coin-btc">
-                                        <div class="coin-icon">
-                                            <em class="icon ni ni-sign-btc-alt"></em>
-                                        </div>
-                                        <div class="coin-info">
-                                            <span class="coin-name">BTC Wallet</span>
-                                            <span class="coin-text">1X38 * * * * YW94</span>
-                                        </div>
+                    <form action="{{ route('user.processPayment') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
+                        <input type="hidden" name="deposit_id" value="{{ $deposit->id }}">
+
+                        <div class="nk-block">
+
+                            <div class="buysell-field form-group">
+                                <div class="buysell-field form-group">
+                                    <div class="form-label-group">
+                                        <label class="form-label" for="buysell-amount">Payment Screenshot</label>
                                     </div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-auto dropdown-menu-mxh">
-                                    <ul class="buysell-cc-list">
-                                        <li class="buysell-cc-item selected">
-                                            <a href="#" class="buysell-cc-opt" data-currency="btc">
-                                                <div class="coin-item coin-btc">
-                                                    <div class="coin-icon">
-                                                        <em class="icon ni ni-sign-btc-alt"></em>
-                                                    </div>
-                                                    <div class="coin-info">
-                                                        <span class="coin-name">BTC Wallet</span>
-                                                        <span class="coin-text">1X38 * * * * YW94</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li> <!-- .buysell-cc-item -->
-                                        <li class="buysell-cc-item">
-                                            <a href="#" class="buysell-cc-opt" data-currency="eth">
-                                                <div class="coin-item coin-eth">
-                                                    <div class="coin-icon">
-                                                        <em class="icon ni ni-sign-eth-alt"></em>
-                                                    </div>
-                                                    <div class="coin-info">
-                                                        <span class="coin-name">Ethereum (ETH)</span>
-                                                        <span class="coin-text">Not order yet!</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li> <!-- .buysell-cc-item -->
-                                    </ul>
+                                    <div class="form-control-group">
+                                        <input type="file"  class="form-control form-control-file" id="buysell-amount" name="reference">
+                                    </div>
+                                    <p class="text-danger mt-3">Upload a screenshot of your payment for confirmation.</p>
                                 </div>
-                            </div><!-- .dropdown -->
-                        </div><!-- .buysell-field -->
-                        <div class="buysell-field form-action text-center">
-                            <div>
-                                <a class="btn btn-primary btn-lg" data-bs-dismiss="modal" data-bs-toggle="modal" href="#confirm-coin">Confirm the Order</a>
+
+                            </div><!-- .buysell-field -->
+                            <div class="buysell-field form-action text-center">
+                                <div>
+                                    <button type="submit" class="btn btn-primary btn-lg" >Confirm the Order</button>
+                                </div>
+                                <div class="pt-3">
+                                    <a href="#" data-bs-dismiss="modal" class="link link-danger">Cancel Order</a>
+                                </div>
                             </div>
-                            <div class="pt-3">
-                                <a href="#" data-bs-dismiss="modal" class="link link-danger">Cancel Order</a>
-                            </div>
-                        </div>
-                    </div><!-- .nk-block -->
+                        </div><!-- .nk-block -->
+                    </form>
+
+
                 </div><!-- .modal-body -->
             </div><!-- .modal-content -->
         </div><!-- .modla-dialog -->
