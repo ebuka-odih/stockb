@@ -23,8 +23,8 @@ class UserController extends Controller
     public function myAccount()
     {
         $user = Auth::user();
-        $deposit = Deposit::whereUserId('status', 1)->select('amount')->sum('amount');
-        $withdrawal = Withdrawal::whereUserId('status', 1)->select('amount')->sum('amount');
+        $deposit = Deposit::whereUserId(\auth()->id())->where('status', 1)->select('amount')->sum('amount');
+        $withdrawal = Withdrawal::whereUserId(\auth()->id())->where('status', 1)->select('amount')->sum('amount');
         $stock = PurchasedStock::whereUserId(\auth()->id())->select('amount')->sum('amount');
         $crypto = PurchasedCrypto::whereUserId(\auth()->id())->select('amount')->sum('amount');
 

@@ -82,6 +82,7 @@
                                                 <div class="nk-wgw-balance">
                                                     <div class="amount">@convert($user->profit)<span class="currency currency-eth">{{ $user->currency }}</span></div>
                                                 </div>
+                                                <p class="mt-3">This is your withdraw-able balance </p>
                                             </a>
                                         </div>
                                     </div>
@@ -140,9 +141,7 @@
 
                             </div>
                         </div><!-- .nk-wg4 -->
-                        <div class="nk-ck2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                            <canvas class="chart-account-summary chartjs-render-monitor" id="summaryBalance" width="1976" height="480" style="display: block; height: 240px; width: 988px;"></canvas>
-                        </div><!-- .nk-ck2 -->
+
                     </div><!-- .card-inner -->
                 </div><!-- .card -->
             </div><!-- .nk-block -->
