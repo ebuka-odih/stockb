@@ -79,8 +79,8 @@
                                             <span>AB</span>
                                         </div>
                                         <div class="user-info">
-                                            <span class="lead-text">Abu Bin Ishtiyak</span>
-                                            <span class="sub-text">info@softnio.com</span>
+                                            <span class="lead-text">{{ auth()->user()->name }}</span>
+                                            <span class="sub-text">{{ auth()->user()->email }}</span>
                                         </div>
                                         <div class="user-action">
                                             <em class="icon ni ni-chevron-down"></em>
@@ -143,7 +143,7 @@
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
-                                    <a href="html/crypto/accounts.html" class="nk-menu-link">
+                                    <a href="{{ route('user.myAccount') }}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-c"></em></span>
                                         <span class="nk-menu-text">My Account</span>
                                     </a>
@@ -320,7 +320,7 @@
                                         <em class="icon ni ni-card-view"></em>
                                     </div>
                                     <div class="nk-news-text">
-                                        <p>Do you know the latest update of 2022? <span> A overview of our is now available on YouTube</span></p>
+                                        <p>Do you know the latest update of 2023? <span> A overview of our is now available on YouTube</span></p>
                                         <em class="icon ni ni-external"></em>
                                     </div>
                                 </a>
@@ -334,34 +334,7 @@
                                             <img class="icon" src="./images/flags/english-sq.png" alt="">
                                         </div>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-s1">
-                                        <ul class="language-list">
-                                            <li>
-                                                <a href="#" class="language-item">
-                                                    <img src="./images/flags/english.png" alt="" class="language-flag">
-                                                    <span class="language-name">English</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="language-item">
-                                                    <img src="./images/flags/spanish.png" alt="" class="language-flag">
-                                                    <span class="language-name">Español</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="language-item">
-                                                    <img src="./images/flags/french.png" alt="" class="language-flag">
-                                                    <span class="language-name">Français</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="language-item">
-                                                    <img src="./images/flags/turkey.png" alt="" class="language-flag">
-                                                    <span class="language-name">Türkçe</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+
                                 </li><!-- .dropdown -->
                                 <li class="dropdown user-dropdown">
                                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
@@ -494,7 +467,7 @@
             <div class="nk-footer">
                 <div class="container-fluid">
                     <div class="nk-footer-wrap">
-                        <div class="nk-footer-copyright"> &copy; 2023 {{ env('APP_NAME') }}. 
+                        <div class="nk-footer-copyright"> &copy; 2023 {{ env('APP_NAME') }}.
                         </div>
 
                     </div>

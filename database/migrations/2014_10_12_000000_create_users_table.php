@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
             $table->decimal('balance', 12, 2)->nullable()->default(0);
+            $table->decimal('investment_acct', 12, 2)->nullable()->default(0);
+            $table->decimal('withdrawal_acct', 12, 2)->nullable()->default(0);
             $table->decimal('profit', 12, 2)->nullable()->default(0);
             $table->decimal('ref_bonus', 12,2)->default(0);
 

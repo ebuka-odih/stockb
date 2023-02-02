@@ -14,6 +14,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function(){
     Route::get('dashboard', 'UserController@dashboard')->name('dashboard');
+    Route::get('myaccount', 'UserController@myAccount')->name('myAccount');
 
     Route::get('deposit', 'DepositController@deposit')->name('deposit');
     Route::post('process/crypto/deposit', 'DepositController@processCrypto')->name('processCrypto');

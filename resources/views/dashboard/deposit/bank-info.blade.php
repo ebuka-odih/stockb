@@ -11,7 +11,7 @@
                             <div class="nk-pps-title">
                                 <h3 class="title text-center">Bank Transfer</h3>
                                 <p class="caption-text">Your order TNX37093548 has been placed successfully. To complete your deposit, please send the payment of
-                                    <strong class="text-dark">@convert($deposit->amount) USD</strong> through bank.</p>
+                                    <strong class="text-dark">@convert($deposit->amount) {{ $deposit->user->currency }}</strong> through bank.</p>
                             </div>
                             <div class="nk-pps-data">
                                 <p class="sub-text pb-1 mt-2">We've sent an email to you including payment information as below. If you have any question regarding payment information, please contact us.</p>
@@ -20,7 +20,7 @@
                                 <table class="table table-striped" style="width:100%">
                                     <tr>
                                         <th>Payment Amount:</th>
-                                        <td>@convert($deposit->amount) USD</td>
+                                        <td>@convert($deposit->amount) {{ $deposit->user->currency }}</td>
                                     </tr>
                                     <tr>
                                         <th>Reference:</th>
