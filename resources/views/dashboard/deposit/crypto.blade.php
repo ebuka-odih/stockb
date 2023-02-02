@@ -7,9 +7,9 @@
                 <div class="buysell wide-xs m-auto">
 
                     <div class="buysell-title text-center">
-                        <h2 class="title">Crypto Deposit </h2>
+                        <h3 class="title">Crypto Deposit </h2>
                     </div><!-- .buysell-title -->
-                    <br>
+                    <hr>
                     @if(session()->has('success'))
                         <div class="alert alert-success alert-dismissible fade show">
                             {{ session()->get('success') }}
@@ -34,15 +34,15 @@
                                     <h4>Scan QRCode</h4>
                                     {!! QrCode::size(150)->generate($deposit->payment_method->value); !!}
                                     <br>
-                                    <p class="mt-4" id="foo">{{ $deposit->payment_method->value }} <a class="btn text-primary"  data-clipboard-target="#foo"><em class="icon ni ni-copy"></em></a></p>
+                                   <p class="mt-4" id="foo"> Wallet Address: <span class="text-primary">{{ $deposit->payment_method->value }}</span> <a class="btn text-primary"  data-clipboard-target="#foo"><em class="icon ni ni-copy"></em></a></p>
                                 </div>
                             </div><!-- .buysell-field -->
+                            <p style="font-size: 20px">Deposit the sum of <span class="text-success">{{ $deposit->user->currency }} @convert($deposit->amount)</span> to the wallet above</p>
 
 
                             <div class="buysell-field form-action">
                                 <a class="btn btn-lg btn-block btn-primary" data-bs-toggle="modal" href="#buy-coin">Confirm Deposit</a>
                             </div><!-- .buysell-field -->
-                            <div class="form-note text-base text-center">Note: our transfer fee included, <a href="#">see our fees</a>.</div>
 
                         </form><!-- .buysell-form -->
                     </div><!-- .buysell-block -->
@@ -51,6 +51,13 @@
         </div>
     </div>
 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+
+    <script>
+        new ClipboardJS('.btn');
+    </script>
 
 
     <div class="modal fade" tabindex="-1" role="dialog" id="buy-coin">
@@ -98,9 +105,5 @@
         </div><!-- .modla-dialog -->
     </div><!-- .modal -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
 
-    <script>
-        new ClipboardJS('.btn');
-    </script>
 @endsection

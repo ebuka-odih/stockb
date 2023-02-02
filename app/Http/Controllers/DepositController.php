@@ -18,6 +18,12 @@ class DepositController extends Controller
         return view('dashboard.deposit.deposit', compact('payment_m'));
     }
 
+    public function crypto($id)
+    {
+        $deposit = Deposit::findOrFail($id);
+        return view('dashboard.deposit.crypto', compact('deposit'));
+    }
+
     public function processCrypto(Request $request)
     {
         $request->validate([
@@ -31,15 +37,13 @@ class DepositController extends Controller
         $deposit->payment_method_id = $request->payment_method_id;
         $deposit->user_id = Auth::id();
         $deposit->save();
-
         return redirect()->route('user.crypto', $deposit->id);
 
     }
 
-    public function bankTransfer($id)
+    public function bankTransfer()
     {
-        $deposit = Deposit::findOrFail($id);
-        return view('dashboard.deposit.bank-info', compact('deposit'));
+        return view('dashboard.deposit.bank-deposit');
     }
     public function processBank(Request $request)
     {
@@ -55,15 +59,22 @@ class DepositController extends Controller
         $deposit->user_id = Auth::id();
         $deposit->save();
         Mail::to(auth()->user()->email)->send(new BankDeposit($deposit));
-        return redirect()->route('user.bankTransfer', $deposit->id);
+        return redirect()->route('user.bankInfo', $deposit->id);
     }
 
-    public function crypto($id)
+    public function bankInfo($id)
     {
         $deposit = Deposit::findOrFail($id);
-        return view('dashboard.deposit.crypto', compact('deposit'));
+        return view('dashboard.deposit.bank-info', compact('deposit'));
     }
-    public function processPayment(Request $request)
+
+    public function wireTransfer($id)
+    {
+        $deposit = Deposit::findOrFail($id);
+        return view('dashboard.deposit.wire-transfer', compact('deposit'));
+    }
+
+    public function processWireTransfer(Request $request)
     {
         $request->validate([
                 'reference' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:7048',
@@ -78,7 +89,7 @@ class DepositController extends Controller
             $id = $request->deposit_id;
             $deposit = Deposit::findOrFail($id);
             $deposit->update(['reference' => $input['imagename'] ]);
-            Mail::to('admin@whalescorp.io')->send(new AdminDepositAlert($deposit));
+            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new AdminDepositAlert($deposit));
             return redirect()->back()->with('success', "Transaction Sent, Awaiting Approval ");
         }
         return redirect()->back()->with('declined', "Please Upload Your Payment Screenshot ");

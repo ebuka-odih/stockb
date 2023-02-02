@@ -12,11 +12,14 @@
                     </div><!-- .buysell-title -->
                     <div class="buysell-nav text-center">
                         <ul class="nk-nav nav nav-tabs nav-tabs-s2">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{ route('user.deposit') }}">Crypto Deposit</a>
+                            </li>
                             <li class="nav-item active current-page">
-                                <a class="nav-link active" href="{{ route('user.deposit') }}">Crypto Deposit</a>
+                                <a class="nav-link active" href="#">Wire Transfer</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.bankTransfer') }}">Bank Deposit</a>
+                                <a class="nav-link" href="#">Bank Deposit</a>
                             </li>
                         </ul>
                     </div>
@@ -50,7 +53,7 @@
                                 <div class="form-control-group">
                                     <select name="payment_method_id" class="form-control form-control-lg" id="">
                                         @foreach($payment_m as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                     <div class="form-dropdown">

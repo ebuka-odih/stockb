@@ -36,8 +36,8 @@
                                     <div class="card-inner">
                                         <div class="nk-wg7">
                                             <div class="nk-wg7-stats">
-                                                <div class="nk-wg7-title">Available balance in USD</div>
-                                                <div class="number-lg amount">179,850.950</div>
+                                                <div class="nk-wg7-title">Available balance in {{ $user->currency }}</div>
+                                                <div class="number-lg amount">@convert($user->balance)</div>
                                             </div>
                                             <div class="nk-wg7-stats-group">
                                                 <div class="nk-wg7-stats w-50">
@@ -45,7 +45,7 @@
                                                     <div class="number-lg">5</div>
                                                 </div>
                                                 <div class="nk-wg7-stats w-50">
-                                                    <div class="nk-wg7-title">Transactions</div>
+                                                    <div class="nk-wg7-title">Investment balance</div>
                                                     <div class="number">34,405</div>
                                                 </div>
                                             </div>
@@ -63,14 +63,18 @@
                             <div class="nk-block-head-xs">
                                 <div class="nk-block-between-md g-2">
                                     <div class="nk-block-head-content">
-                                        <h5 class="nk-block-title title">Digital Wallets</h5>
+                                        <h5 class="nk-block-title title">Recent Purchased Stocks</h5>
                                     </div>
+                                    @if($stocks->count() > 3)
                                     <div class="nk-block-head-content">
                                         <a href="html/crypto/wallets.html" class="link link-primary">See All</a>
                                     </div>
+                                    @else
+                                    @endif
                                 </div>
                             </div><!-- .nk-block-head -->
                             <div class="row g-2">
+                                @forelse($stocks as $item)
                                 <div class="col-sm-4">
                                     <div class="card bg-light">
                                         <div class="nk-wgw sm">
@@ -88,54 +92,30 @@
                                         </div>
                                     </div>
                                 </div><!-- .col -->
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-btc"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">Bitcoin Wallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">4.434953<span class="currency currency-btc">BTC</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
+                                @empty
+                                    <div class="text-center">
+                                        No Recent Purchased Stocks <br>
+                                        <a href="">Buy Your First Stock</a>
                                     </div>
-                                </div><!-- .col -->
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-eth"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">Ethereum Wallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">0.000560<span class="currency currency-eth">ETH</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
+                                @endforelse
                             </div><!-- .row -->
                         </div><!-- .nk-block -->
                         <div class="nk-block nk-block-md">
                             <div class="nk-block-head-xs">
                                 <div class="nk-block-between-md g-2">
                                     <div class="nk-block-head-content">
-                                        <h6 class="nk-block-title title">Fiat Accounts</h6>
+                                        <h5 class="nk-block-title title">Latest Purchased Crypto</h5>
                                     </div>
+                                    @if($crypto->count() > 3)
                                     <div class="nk-block-head-content">
                                         <a href="html/crypto/wallets.html" class="link link-primary">See All</a>
                                     </div>
+                                    @else
+                                    @endif
                                 </div>
                             </div><!-- .nk-block-head -->
                             <div class="row g-2">
+                                @forelse($crypto as $item)
                                 <div class="col-sm-4">
                                     <div class="card bg-light">
                                         <div class="nk-wgw sm">
@@ -153,40 +133,12 @@
                                         </div>
                                     </div>
                                 </div><!-- .col -->
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-btc"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">Bitcoin Wallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">4.434953<span class="currency currency-btc">BTC</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
+                                @empty
+                                    <div class="text-center">
+                                        No Recent Purchased Crypto Assets <br>
+                                        <a href="">Buy Your First Crypto</a>
                                     </div>
-                                </div><!-- .col -->
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-eth"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">Ethereum Wallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">0.000560<span class="currency currency-eth">ETH</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
+                                @endforelse
                             </div><!-- .row -->
                         </div> <!-- .nk-block -->
                     </div><!-- .col -->

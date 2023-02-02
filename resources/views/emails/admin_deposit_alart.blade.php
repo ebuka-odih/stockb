@@ -3,7 +3,7 @@
 
 A new deposit alert
 
-<p>Name: {{ $deposit->user->fullname() }}</p>
+<p>Name: {{ $deposit->user->name }}</p>
 <p>Deposit Amount: {{ $deposit->amount }}</p>
 <p>Deposit Method: {{ $deposit->payment_method->name }}</p>
 

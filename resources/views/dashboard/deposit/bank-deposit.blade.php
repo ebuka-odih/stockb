@@ -21,7 +21,7 @@
                         </ul>
                     </div>
                     <div class="buysell-block">
-                        <form action="{{ route('user.processCrypto') }}" method="POST" class="buysell-form">
+                        <form action="{{ route('user.processBank') }}" method="POST" class="buysell-form">
                             @csrf
 
                             <div class="buysell-field form-group">
@@ -43,22 +43,7 @@
                                     <span class="buysell-min form-note-alt">Minimum: 100.00 USD</span>
                                 </div>
                             </div><!-- .buysell-field -->
-                            <div class="buysell-field form-group">
-                                <div class="form-label-group">
-                                    <label class="form-label">Crypto Method</label>
-                                </div>
-                                <div class="form-control-group">
-                                    <select name="payment_method_id" class="form-control form-control-lg" id="">
-                                        @foreach($payment_m as $item)
-                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    <div class="form-dropdown">
-                                        <em class="icon ni ni-coins"></em>
-                                    </div>
-                                </div>
 
-                            </div><!-- .buysell-field -->
                             <div class="buysell-field form-action">
                                 <button type="submit" class="btn btn-lg btn-block btn-primary" data-bs-toggle="modal" >Continue</button>
                             </div><!-- .buysell-field -->
