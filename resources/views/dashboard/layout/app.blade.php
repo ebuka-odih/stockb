@@ -126,7 +126,18 @@
                                     <li><a href="html/crypto/profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
                                 </ul>
                                 <ul class="link-list">
-                                    <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <em class="icon ni ni-signout"></em><span>Sign out</span>
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+
+                                        </li>
                                 </ul>
                             </div>
                         </div><!-- .nk-sidebar-widget -->
@@ -144,20 +155,20 @@
                                 </li>
                                 <li class="nk-menu-item">
                                     <a href="{{ route('user.myAccount') }}" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-c"></em></span>
+                                        <span class="nk-menu-icon"><em class="icon ni ni-wallet-alt"></em></span>
                                         <span class="nk-menu-text">My Account</span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
-                                    <a href="html/crypto/wallets.html" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-wallet-alt"></em></span>
-                                        <span class="nk-menu-text">Wallets</span>
+                                    <a href="{{ route('user.stocks') }}" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-chart-up"></em></span>
+                                        <span class="nk-menu-text">Stocks</span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
                                     <a href="html/crypto/buy-sell.html" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
-                                        <span class="nk-menu-text">Buy / Sell</span>
+                                        <span class="nk-menu-text">Crypto</span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
@@ -373,7 +384,7 @@
                                         </div>
                                     </div>
                                 </li>
-                              
+
                             </ul>
                         </div>
                     </div>

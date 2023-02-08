@@ -28,11 +28,20 @@
                             <div class="nk-wg1-group g-2">
                                 <div class="nk-wg1-item me-xl-4">
                                     <div class="nk-wg1-title">Available Balance / <div class="dropdown">
-                                            <a class="dropdown-indicator-caret" data-offset="0,10" href="#" data-bs-toggle="dropdown">{{ $user->currency }}</a>
+                                            <a  data-offset="0,10" href="#" data-bs-toggle="dropdown">{{ $user->currency }}</a>
                                         </div>
                                     </div>
                                     <div class="nk-wg1-amount">
                                         <div class="amount">@convert($user->balance) <small class="currency currency-btc">{{ $user->currency }}</small></div>
+                                    </div>
+                                </div><!-- .nk-wg1-item -->
+                                <div class="nk-wg1-item me-xl-4">
+                                    <div class="nk-wg1-title">Withdrawal Balance / <div class="dropdown">
+                                            <a  data-offset="0,10" >{{ $user->currency }}</a>
+                                        </div>
+                                    </div>
+                                    <div class="nk-wg1-amount">
+                                        <div class="amount">@convert($user->withdrawal_acct) <small class="currency currency-btc">{{ $user->currency }}</small></div>
                                     </div>
                                 </div><!-- .nk-wg1-item -->
                                 <div class="nk-wg1-item ms-lg-auto">
@@ -69,20 +78,61 @@
                         </div><!-- .card-head -->
                         <div class="nk-wg4">
                             <div class="row g-2">
+
                                 <div class="col-sm-4">
                                     <div class="card bg-light">
                                         <div class="nk-wgw sm">
                                             <a class="nk-wgw-inner" >
                                                 <div class="nk-wgw-name">
                                                     <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-eth"></em>
+                                                        <em class="icon ni ni-wallet-fill"></em>
                                                     </div>
-                                                    <h5 class="nk-wgw-title title">Withdrawal Account</h5>
+                                                    <h5 class="nk-wgw-title title">Total Investment</h5>
+                                                </div>
+                                                <div class="nk-wgw-balance">
+                                                    <div class="amount">@convert($stock_count + $crypto_count)<span class="currency currency-eth">{{ $user->currency }}</span></div>
+                                                </div>
+                                                <div class="nk-wgw-name mt-3">
+                                                    <h5 class="nk-wgw-title title">Total Investment + Profit</h5>
+                                                </div>
+                                                <div class="nk-wgw-balance">
+                                                    <div class="amount"> @convert($stock_count + $crypto_count + $user->profit)<span class="currency currency-eth">{{ $user->currency }}</span></div>
+                                                </div>
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-sm-4">
+                                    <div class="card bg-light">
+                                        <div class="nk-wgw sm">
+                                            <a class="nk-wgw-inner" >
+                                                <div class="nk-wgw-name">
+                                                    <div class="nk-wgw-icon">
+                                                        <em class="icon ni ni-wallet-fill"></em>
+                                                    </div>
+                                                    <h5 class="nk-wgw-title title">Profit</h5>
                                                 </div>
                                                 <div class="nk-wgw-balance">
                                                     <div class="amount">@convert($user->profit)<span class="currency currency-eth">{{ $user->currency }}</span></div>
                                                 </div>
-                                                <p class="mt-3">This is your withdraw-able balance </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-sm-4">
+                                    <div class="card bg-light">
+                                        <div class="nk-wgw sm">
+                                            <a class="nk-wgw-inner" >
+                                                <div class="nk-wgw-name">
+                                                    <div class="nk-wgw-icon">
+                                                        <em class="icon ni ni-wallet-fill"></em>
+                                                    </div>
+                                                    <h5 class="nk-wgw-title title">Referral Bonus</h5>
+                                                </div>
+                                                <div class="nk-wgw-balance">
+                                                    <div class="amount">@convert($user->ref_bonus)<span class="currency currency-eth">{{ $user->currency }}</span></div>
+                                                </div>
                                             </a>
                                         </div>
                                     </div>
@@ -112,7 +162,7 @@
                                                     <div class="nk-wgw-icon">
                                                         <em class="icon ni ni-wallet-fill"></em>
                                                     </div>
-                                                    <h5 class="nk-wgw-title title">Total Withdrawal</h5>
+                                                    <h5 class="nk-wgw-title title">Total Withdrawn</h5>
                                                 </div>
                                                 <div class="nk-wgw-balance">
                                                     <div class="amount">@convert($withdrawal)<span class="currency currency-btc">{{ $user->currency }}</span></div>
@@ -121,23 +171,7 @@
                                         </div>
                                     </div>
                                 </div><!-- .col -->
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" >
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-eth"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">Profit</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">@convert($user->profit)<span class="currency currency-eth">{{ $user->currency }}</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
+
 
                             </div>
                         </div><!-- .nk-wg4 -->

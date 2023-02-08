@@ -24,5 +24,6 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
     Route::get('crypto/deposit/{id}', 'DepositController@crypto')->name('crypto');
     Route::patch('process/payment/QH5H3Q642GER', "DepositController@processPayment")->name('processPayment');
 
+    Route::get('stocks', "StockController@stocks")->name('stocks');
 
 });

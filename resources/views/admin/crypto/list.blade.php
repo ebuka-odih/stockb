@@ -20,7 +20,7 @@
             <!-- Striped Table -->
             <div class="block block-rounded">
                 <div class="block-header block-header-default">
-                    <a href="{{ route('admin.stocks.create') }}" class="btn btn-secondary">Add Crypto</a>
+                    <a href="{{ route('admin.crypto.create') }}" class="btn btn-secondary">Add Crypto</a>
                 </div>
                 <div class="block-content">
                     <table class="table table-striped table-vcenter">
