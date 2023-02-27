@@ -9,7 +9,7 @@
                     <div class="nk-block">
                         <div class="nk-block-head-sm">
                             <div class="nk-block-head-content">
-                                <h5 class="nk-block-title title">Purchase Stock</h5>
+{{--                                <h5 class="nk-block-title title">Invest</h5>--}}
                             </div>
                         </div>
                         <div class="row g-gs">
@@ -18,10 +18,10 @@
                                     <div class="nk-wgw">
                                         <div class="nk-wgw-inner">
 
-                                            <img style="border-radius: 50%; height: 80px; width: 80px" src="{{ asset('files/'.$stock->logo) }}" alt="">
+                                            <img style="border-radius: 50%; height: 80px; width: 80px" src="{{ asset('files/'.$crypto->logo) }}" alt="">
                                             <div class="nk-wgw-balance">
 
-                                                <div class="amount">{{ $stock->name }}</div>
+                                                <div class="amount">{{ $crypto->name }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <input type="hidden" name="stock_id" value="{{ $stock->id }}">
+                        <input type="hidden" name="crypto_id" value="{{ $crypto->id }}">
 
                         <div class="buysell-field form-group">
                             <div class="form-label-group">

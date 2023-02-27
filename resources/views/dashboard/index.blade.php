@@ -17,7 +17,7 @@
                     <div class="nk-block-head-content">
                         <ul class="nk-block-tools gx-3">
                             <li><a href="{{ route('user.deposit') }}" class="btn btn-primary"><span>Deposit</span> <em class="icon ni ni-arrow-long-right"></em></a></li>
-                            <li><a href="#" class="btn btn-white btn-light"><span>Buy Stocks</span> <em class="icon ni ni-arrow-long-right d-none d-sm-inline-block"></em></a></li>
+                            <li><a href="{{ route('user.stocks') }}" class="btn btn-white btn-light"><span>Buy Stocks</span> <em class="icon ni ni-arrow-long-right d-none d-sm-inline-block"></em></a></li>
                         </ul>
                     </div><!-- .nk-block-head-content -->
                 </div><!-- .nk-block-between -->
@@ -144,127 +144,150 @@
                     </div><!-- .col -->
                 </div><!-- .row -->
             </div><!-- .nk-block -->
+            <hr>
             <div class="nk-block nk-block-lg">
                 <div class="row gy-gs">
-                    <div class="col-md-6">
-                        <div class="card-head">
-                            <div class="card-title  mb-0">
-                                <h5 class="title">Recent Activities</h5>
-                            </div>
-                            <div class="card-tools">
-                                <ul class="card-tools-nav">
-                                    <li><a href="#">Buy</a></li>
-                                    <li><a href="#">Sell</a></li>
-                                    <li class="active"><a href="#">All</a></li>
-                                </ul>
-                            </div>
-                        </div><!-- .card-head -->
-                        <div class="tranx-list card card-bordered">
-                            <div class="tranx-item">
-                                <div class="tranx-col">
-                                    <div class="tranx-info">
-                                        <div class="tranx-data">
-                                            <div class="tranx-label">Buy Bitcoin <em class="tranx-icon sm icon ni ni-sign-btc"></em></div>
-                                            <div class="tranx-date">Nov 12, 2019 11:34 PM</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tranx-col">
-                                    <div class="tranx-amount">
-                                        <div class="number">0.5384 <span class="currency currency-btc">BTC</span></div>
-                                        <div class="number-sm">3,980.93 <span class="currency currency-usd">USD</span></div>
-                                    </div>
-                                </div>
-                            </div><!-- .tranx-item -->
-                            <div class="tranx-item">
-                                <div class="tranx-col">
-                                    <div class="tranx-info">
-                                        <div class="tranx-data">
-                                            <div class="tranx-label">Buy Ehtereum <span class="tranx-icon sm"><img src="./images/coins/eth.svg" alt=""></span></div>
-                                            <div class="tranx-date">Nov 12, 2019 11:34 PM</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tranx-col">
-                                    <div class="tranx-amount">
-                                        <div class="number">1.538405 <span class="currency currency-btc">ETH</span></div>
-                                        <div class="number-sm">1,176.34 <span class="currency currency-usd">USD</span></div>
-                                    </div>
-                                </div>
-                            </div><!-- .tranx-item -->
-                            <div class="tranx-item">
-                                <div class="tranx-col">
-                                    <div class="tranx-info">
-                                        <div class="tranx-data">
-                                            <div class="tranx-label">Buy Bitcoin <em class="tranx-icon sm icon ni ni-sign-btc"></em></div>
-                                            <div class="tranx-date">Nov 12, 2019 11:34 PM</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tranx-col">
-                                    <div class="tranx-amount">
-                                        <div class="number">0.5384 <span class="currency currency-btc">BTC</span></div>
-                                        <div class="number-sm">3,980.93 <span class="currency currency-usd">USD</span></div>
-                                    </div>
-                                </div>
-                            </div><!-- .tranx-item -->
-                            <div class="tranx-item">
-                                <div class="tranx-col">
-                                    <div class="tranx-info">
-                                        <div class="tranx-data">
-                                            <div class="tranx-label">Buy Ehtereum <span class="tranx-icon sm"><img src="./images/coins/eth.svg" alt=""></span></div>
-                                            <div class="tranx-date">Nov 12, 2019 11:34 PM</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tranx-col">
-                                    <div class="tranx-amount">
-                                        <div class="number">1.538405 <span class="currency currency-btc">ETH</span></div>
-                                        <div class="number-sm">1,176.34 <span class="currency currency-usd">USD</span></div>
-                                    </div>
-                                </div>
-                            </div><!-- .tranx-item -->
-                        </div><!-- .tranx-list -->
-                    </div><!-- .col -->
-                    <div class="col-md-6">
-                        <div class="card-head">
-                            <div class="card-title mb-0">
-                                <h5 class="title">Balance Flow</h5>
-                            </div>
-                            <div class="card-tools">
-                                <ul class="card-tools-nav">
-                                    <li><a href="#">This Month</a></li>
-                                    <li class="active"><a href="#">This Years</a></li>
-                                </ul>
-                            </div>
-                        </div><!-- .card-title -->
-                        <div class="card card-bordered">
-                            <div class="card-inner">
-                                <div class="nk-wg4">
-                                    <div class="nk-wg4-group justify-center gy-3 gx-4">
-                                        <div class="nk-wg4-item">
-                                            <div class="sub-text">
-                                                <div class="dot dot-lg sq" data-bg="#5ce0aa"></div> <span>Received</span>
-                                            </div>
-                                        </div>
-                                        <div class="nk-wg4-item">
-                                            <div class="sub-text">
-                                                <div class="dot dot-lg sq" data-bg="#798bff"></div> <span>Send</span>
-                                            </div>
-                                        </div>
-                                        <div class="nk-wg4-item">
-                                            <div class="sub-text">
-                                                <div class="dot dot-lg sq" data-bg="#f6ca3e"></div><span>Withdraw</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="nk-ck3">
-                                    <canvas class="chart-account-summary" id="summaryBalance"></canvas>
-                                </div>
-                            </div><!-- .card-inner -->
-                        </div><!-- .card -->
-                    </div><!-- .col -->
+                    <div class="col-md-12">
+                        <h4>Market Summary</h4>
+                        <!-- TradingView Widget BEGIN -->
+                        <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener" target="_blank"></a></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                                {
+                                    "width": "100%",
+                                    "height": "500",
+                                    "symbolsGroups": [
+                                    {
+                                        "name": "Indices",
+                                        "originalName": "Indices",
+                                        "symbols": [
+                                            {
+                                                "name": "FOREXCOM:SPXUSD",
+                                                "displayName": "S&P 500"
+                                            },
+                                            {
+                                                "name": "FOREXCOM:NSXUSD",
+                                                "displayName": "US 100"
+                                            },
+                                            {
+                                                "name": "FOREXCOM:DJI",
+                                                "displayName": "Dow 30"
+                                            },
+                                            {
+                                                "name": "INDEX:NKY",
+                                                "displayName": "Nikkei 225"
+                                            },
+                                            {
+                                                "name": "INDEX:DEU40",
+                                                "displayName": "DAX Index"
+                                            },
+                                            {
+                                                "name": "FOREXCOM:UKXGBP",
+                                                "displayName": "UK 100"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Futures",
+                                        "originalName": "Futures",
+                                        "symbols": [
+                                            {
+                                                "name": "CME_MINI:ES1!",
+                                                "displayName": "S&P 500"
+                                            },
+                                            {
+                                                "name": "CME:6E1!",
+                                                "displayName": "Euro"
+                                            },
+                                            {
+                                                "name": "COMEX:GC1!",
+                                                "displayName": "Gold"
+                                            },
+                                            {
+                                                "name": "NYMEX:CL1!",
+                                                "displayName": "Crude Oil"
+                                            },
+                                            {
+                                                "name": "NYMEX:NG1!",
+                                                "displayName": "Natural Gas"
+                                            },
+                                            {
+                                                "name": "CBOT:ZC1!",
+                                                "displayName": "Corn"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Bonds",
+                                        "originalName": "Bonds",
+                                        "symbols": [
+                                            {
+                                                "name": "CME:GE1!",
+                                                "displayName": "Eurodollar"
+                                            },
+                                            {
+                                                "name": "CBOT:ZB1!",
+                                                "displayName": "T-Bond"
+                                            },
+                                            {
+                                                "name": "CBOT:UB1!",
+                                                "displayName": "Ultra T-Bond"
+                                            },
+                                            {
+                                                "name": "EUREX:FGBL1!",
+                                                "displayName": "Euro Bund"
+                                            },
+                                            {
+                                                "name": "EUREX:FBTP1!",
+                                                "displayName": "Euro BTP"
+                                            },
+                                            {
+                                                "name": "EUREX:FGBM1!",
+                                                "displayName": "Euro BOBL"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Forex",
+                                        "originalName": "Forex",
+                                        "symbols": [
+                                            {
+                                                "name": "FX:EURUSD",
+                                                "displayName": "EUR/USD"
+                                            },
+                                            {
+                                                "name": "FX:GBPUSD",
+                                                "displayName": "GBP/USD"
+                                            },
+                                            {
+                                                "name": "FX:USDJPY",
+                                                "displayName": "USD/JPY"
+                                            },
+                                            {
+                                                "name": "FX:USDCHF",
+                                                "displayName": "USD/CHF"
+                                            },
+                                            {
+                                                "name": "FX:AUDUSD",
+                                                "displayName": "AUD/USD"
+                                            },
+                                            {
+                                                "name": "FX:USDCAD",
+                                                "displayName": "USD/CAD"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                    "showSymbolLogo": true,
+                                    "colorTheme": "dark",
+                                    "isTransparent": false,
+                                    "locale": "en"
+                                }
+                            </script>
+                        </div>
+                        <!-- TradingView Widget END -->
+                    </div>
                 </div><!-- .row -->
             </div><!-- .nk-block -->
             <div class="nk-block">

@@ -166,7 +166,7 @@
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
-                                    <a href="html/crypto/buy-sell.html" class="nk-menu-link">
+                                    <a href="{{ route('user.crypto') }}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
                                         <span class="nk-menu-text">Crypto</span>
                                     </a>
@@ -184,7 +184,7 @@
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
-                                    <a href="html/crypto/profile.html" class="nk-menu-link">
+                                    <a href="{{ route('user.profile') }}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-account-setting"></em></span>
                                         <span class="nk-menu-text">My Profile</span>
                                     </a>

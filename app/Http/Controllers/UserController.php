@@ -32,4 +32,31 @@ class UserController extends Controller
         $crypto_count = PurchasedCrypto::whereUserId(\auth()->id())->count();
         return view('dashboard.user.account', compact('user', 'deposit', 'withdrawal', 'stock', 'crypto', 'stock_count', 'crypto_count'));
     }
+
+    public function profile()
+    {
+        $user = Auth::user();
+        return view('dashboard.user.profile', compact('user'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+        $user->update([
+           'name' => $request->name,
+           'phone' => $request->phone,
+           'address' => $request->address,
+           'date_of_birth' => $request->date_of_birth,
+           'telegram' => $request->telegram,
+           'city' => $request->city,
+           'state' => $request->state,
+           'country' => $request->country,
+        ]);
+        return redirect()->back()->with('success', "Profile Data Updated Successfully");
+    }
+
+    public function security()
+    {
+        return view('dashboard.user.security');
+    }
 }

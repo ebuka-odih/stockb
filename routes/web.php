@@ -15,6 +15,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function(){
     Route::get('dashboard', 'UserController@dashboard')->name('dashboard');
     Route::get('myaccount', 'UserController@myAccount')->name('myAccount');
+    Route::get('profile', 'UserController@profile')->name('profile');
+    Route::patch('update/profile', 'UserController@updateProfile')->name('updateProfile');
+    Route::get('security', 'UserController@security')->name('security');
 
     Route::get('deposit', 'DepositController@deposit')->name('deposit');
     Route::post('process/crypto/deposit', 'DepositController@processCrypto')->name('processCrypto');
@@ -25,5 +28,11 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
     Route::patch('process/payment/QH5H3Q642GER', "DepositController@processPayment")->name('processPayment');
 
     Route::get('stocks', "StockController@stocks")->name('stocks');
+    Route::get('invest/{id}/stock', "StockController@invest")->name('invest');
+    Route::post('invest/stock', "StockController@investStock")->name('investStock');
+    Route::get('stock/{id}/success', "StockController@success")->name('success');
+
+    Route::get('crypto', 'CryptoController@crypto')->name('crypto');
+    Route::get('invest/{id}/crypto', 'CryptoController@invest')->name('invest');
 
 });

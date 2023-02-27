@@ -16,4 +16,9 @@ class Stock extends Model
         return $this->attributes['logo'];
     }
 
+    public function purchase_stock()
+    {
+        return $this->hasMany(PurchasedStock::class, 'stock_id');
+    }
+
 }
