@@ -41,18 +41,27 @@ class UserController extends Controller
 
     public function updateProfile(Request $request)
     {
+
         $user = Auth::user();
-        $user->update([
-           'name' => $request->name,
-           'phone' => $request->phone,
-           'address' => $request->address,
-           'date_of_birth' => $request->date_of_birth,
-           'telegram' => $request->telegram,
-           'city' => $request->city,
-           'state' => $request->state,
-           'country' => $request->country,
-        ]);
+        $data = $this->getData($request);
+        $user->update($data);
+
         return redirect()->back()->with('success', "Profile Data Updated Successfully");
+    }
+
+    protected function getData(Request $request)
+    {
+        $rules = [
+            'name' => 'nullable',
+            'phone' => 'nullable',
+            'address' => 'nullable',
+            'date_of_birth' => 'nullable',
+            'telegram' => 'nullable',
+            'city' => 'nullable',
+            'state' => 'nullable',
+            'country' => 'nullable',
+        ];
+        return $request->validate($rules);
     }
 
     public function security()

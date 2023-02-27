@@ -44,6 +44,13 @@
                         <h5 class="nk-block-title">Personal Information</h5>
                     </div>
                 </div><!-- .nk-block-head -->
+                <div class="container-fluid">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success') }}
+                        </div>
+                    @endif
+                </div>
                 <div class="nk-data data-list">
                     <div class="data-head">
                         <h6 class="overline-title">Basics</h6>
@@ -172,11 +179,14 @@
 
                     </div><!-- .tab-pane -->
                     <div class="tab-pane" id="address">
+                        <form action="{{ route('user.updateProfile') }}" method="POST">
+                            @csrf
+                            @method('PATCH')
                         <div class="row gy-4">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label" for="address-l1">Address Line 1</label>
-                                    <input type="text" class="form-control form-control-lg" id="address-l1" value="{{ old('address', optional($user)->address) }}">
+                                    <input type="text" class="form-control form-control-lg" id="address-l1" name="address" value="{{ old('address', optional($user)->address) }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -188,7 +198,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label" for="address-st">State</label>
-                                    <input type="text" class="form-control form-control-lg" id="address-st" value="{{ old('state', optional($user)->state) }}">
+                                    <input type="text" class="form-control form-control-lg" name="state" id="address-st" value="{{ old('state', optional($user)->state) }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -446,7 +456,7 @@
                             <div class="col-12">
                                 <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
                                     <li>
-                                        <a href="#" class="btn btn-lg btn-primary">Update Address</a>
+                                        <button type="submit" class="btn btn-lg btn-primary">Update Address</button>
                                     </li>
                                     <li>
                                         <a href="#" data-bs-dismiss="modal" class="link link-light">Cancel</a>
@@ -454,6 +464,7 @@
                                 </ul>
                             </div>
                         </div>
+                        </form>
                     </div>
                     <!-- .tab-pane -->
                 </div><!-- .tab-content -->
