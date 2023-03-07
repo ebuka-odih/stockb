@@ -19,4 +19,9 @@ class AdminController extends Controller
         $stocks = Stock::count();
         return view('admin.index', compact('users', 'deposits', 'with', 'stocks'));
     }
+
+    public function setting()
+    {
+        return view('admin.site-setting');
+    }
 }

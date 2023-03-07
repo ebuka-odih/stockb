@@ -37,7 +37,7 @@ class DepositController extends Controller
         $deposit->payment_method_id = $request->payment_method_id;
         $deposit->user_id = Auth::id();
         $deposit->save();
-        return redirect()->route('user.crypto', $deposit->id);
+        return redirect()->route('user.deposit.crypto', $deposit->id);
 
     }
 

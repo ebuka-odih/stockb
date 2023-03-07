@@ -14,6 +14,7 @@
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css?ver=3.1.1') }}">
     <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/theme.css?ver=3.1.1') }}">
+
 </head>
 
 <body class="nk-body npc-crypto bg-white has-sidebar dark-mode">
@@ -358,28 +359,38 @@
                                                     <span>AB</span>
                                                 </div>
                                                 <div class="user-info">
-                                                    <span class="lead-text">Abu Bin Ishtiyak</span>
-                                                    <span class="sub-text">info@softnio.com</span>
+                                                    <span class="lead-text">{{ auth()->user()->name }}</span>
+                                                    <span class="sub-text">{{ auth()->user()->email }}</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="dropdown-inner user-account-info">
                                             <h6 class="overline-title-alt">Nio Wallet Account</h6>
-                                            <div class="user-balance">12.395769 <small class="currency currency-btc">BTC</small></div>
+                                            <div class="user-balance">{{ auth()->user()->balance }} <small class="currency currency-btc">{{ auth()->user()->currency }}</small></div>
                                             <div class="user-balance-sub">Locked <span>0.344939 <span class="currency currency-btc">BTC</span></span></div>
                                             <a href="#" class="link"><span>Withdraw Funds</span> <em class="icon ni ni-wallet-out"></em></a>
                                         </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
-                                                <li><a href="html/crypto/profile.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                                <li><a href="html/crypto/profile-security.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
+                                                <li><a href="{{ route('user.profile') }}"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                                                <li><a href="{{ route('user.security') }}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
                                                 <li><a href="html/crypto/profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
                                                 <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
                                             </ul>
                                         </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
-                                                <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                        <em class="icon ni ni-signout"></em><span>Sign out</span>
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -414,8 +425,10 @@
 <!-- app-root @e -->
 
 <!-- JavaScript -->
+
 <script src="{{ asset('assets/js/bundle.js?ver=3.1.1') }}"></script>
 <script src="{{ asset('assets/js/scripts.js?ver=3.1.1') }}"></script>
+
 <script src="{{ asset('assets/js/charts/chart-crypto.js?ver=3.1.1') }}"></script>
 </body>
 

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::group(['middleware' => ['auth', 'verified', 'admin'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
+    Route::get('setting', 'Admin\AdminController@setting')->name('setting');
 
     Route::get('users', "Admin\UserController@users")->name('users');
     Route::get('user/details/{id}', "Admin\UserController@viewUser")->name('viewUser');
@@ -18,6 +19,9 @@ Route::group(['middleware' => ['auth', 'verified', 'admin'], 'prefix' => 'admin'
     Route::resource('stocks', 'Admin\AdminStock');
     //Crypto Routes
     Route::resource('crypto', 'Admin\AdminCrypto');
+
+    Route::get('deposits', 'Admin\AdminDeposits@deposits')->name('deposits');
+    Route::get('approve/{id}/deposit', 'Admin\AdminDeposits@approveDeposit')->name('approveDeposit');
 
 
 });

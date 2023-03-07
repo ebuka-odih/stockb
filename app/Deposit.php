@@ -21,4 +21,13 @@ class Deposit extends Model
     {
         return $this->belongsTo(PaymentMethod::class, "payment_method_id");
     }
+
+    public function status()
+    {
+        if ($this->status == 1)
+        {
+            return '<span class="badge bg-success">Successful</span>';
+        }
+        return '<span class="badge bg-warning">Pending</span>';
+    }
 }
