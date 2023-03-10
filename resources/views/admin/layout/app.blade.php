@@ -152,7 +152,7 @@
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="#">
+                        <a class="nav-main-link" href="{{ route('admin.withdrawals') }}">
                             <i class="nav-main-link-icon fa fa-arrow-circle-up"></i>
                             <span class="nav-main-link-name">Withdrawals</span>
                         </a>
@@ -219,13 +219,13 @@
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" data-toggle="submenu" href="#">
+                        <a class="nav-main-link"  href="#">
                             <i class="nav-main-link-icon fa fa-wrench"></i>
                             <span class="nav-main-link-name">Fund User</span>
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" data-toggle="submenu" href="#">
+                        <a class="nav-main-link" href="{{ route('admin.addDeposit') }}">
                             <i class="nav-main-link-icon fa fa-money-check"></i>
                             <span class="nav-main-link-name">Add Deposit</span>
                         </a>

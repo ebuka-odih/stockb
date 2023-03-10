@@ -7,13 +7,8 @@
         <div class="bg-body-light">
             <div class="content content-full">
                 <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                    <h1 class="flex-grow-1 fs-3 fw-semibold my-2 my-sm-3">Responsive Tables</h1>
-                    <nav class="flex-shrink-0 my-2 my-sm-0 ms-sm-3" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">Tables</li>
-                            <li class="breadcrumb-item active" aria-current="page">Responsive</li>
-                        </ol>
-                    </nav>
+                    <h1 class="flex-grow-1 fs-3 fw-semibold my-2 my-sm-3">Deposits</h1>
+
                 </div>
             </div>
         </div>
@@ -23,14 +18,7 @@
         <div class="content">
             <!-- Full Table -->
             <div class="block block-rounded">
-                <div class="block-header block-header-default">
-                    <h3 class="block-title">Full Table</h3>
-                    <div class="block-options">
-                        <button type="button" class="btn-block-option">
-                            <i class="si si-settings"></i>
-                        </button>
-                    </div>
-                </div>
+
                 <div class="block-content">
 
                     <div class="table-responsive">
@@ -50,7 +38,7 @@
                             @foreach($deposits as $item)
                             <tr>
                                 <td class="text-center">
-                                    {{ date('d m, Y', strtotime($item->created_at)) }}
+                                    {{ date('d M, Y', strtotime($item->created_at)) }}
                                 </td>
                                 <td class="fw-semibold">
                                     <a href="{{ route('admin.viewUser', $item->user->id) }}">{{ $item->user->name }} (@convert($item->user->balance) {{ $item->user->currency }})</a>
@@ -64,9 +52,19 @@
                                         <a href="{{ route('admin.approveDeposit', $item->id) }}" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit">
                                             <i class="fa fa-check"></i>
                                         </a>
-                                        <button type="button" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Delete">
-                                            <i class="fa fa-times"></i>
-                                        </button>
+
+                                        <form method="POST" action="{!! route('admin.deleteDeposit', $item->id) !!}" accept-charset="UTF-8">
+                                            <input name="_method" value="DELETE" type="hidden">
+                                            {{ csrf_field() }}
+
+                                            <div class="btn-group btn-group-xs pull-right" role="group">
+                                                <button type="submit" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Delete" onclick="return confirm(&quot;Delete Deposit?&quot;)">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+
+                                            </div>
+
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

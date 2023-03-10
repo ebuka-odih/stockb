@@ -67,7 +67,7 @@
     <div id="head" class="content-wide">
         <ul>
 
-            <li><span><a class="open-button" href="https://www.firstrade.com/apply/gotoApp.php" style="min-width: 165px; padding:2px; letter-spacing:2px; font-size: 11px;">OPEN AN ACCOUNT</a></span></li>
+            <li><span><a class="open-button" href="{{ route('register') }}" style="min-width: 165px; padding:2px; letter-spacing:2px; font-size: 11px;">OPEN AN ACCOUNT</a></span></li>
             <li>
                 <form role="form" method="post" id="login_form" action="https://invest.firstrade.com/cgi-bin/login?ft_locale=en-us" autocomplete="off" onsubmit="return FTL.FTlogin();">
                     <input type="hidden" name="login.x" value="Log In"  >

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 Route::group(['middleware' => ['auth', 'verified', 'admin'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
     Route::get('setting', 'Admin\AdminController@setting')->name('setting');
+    Route::get('add-deposit', 'Admin\AdminController@addDeposit')->name('addDeposit');
+    Route::post('add-deposit', 'Admin\AdminController@adminProDeposit')->name('adminProDeposit');
 
     Route::get('users', "Admin\UserController@users")->name('users');
     Route::get('user/details/{id}', "Admin\UserController@viewUser")->name('viewUser');
@@ -22,7 +24,9 @@ Route::group(['middleware' => ['auth', 'verified', 'admin'], 'prefix' => 'admin'
 
     Route::get('deposits', 'Admin\AdminDeposits@deposits')->name('deposits');
     Route::get('approve/{id}/deposit', 'Admin\AdminDeposits@approveDeposit')->name('approveDeposit');
+    Route::delete('delete/{id}/deposit', 'Admin\AdminDeposits@deleteDeposit')->name('deleteDeposit');
 
+    Route::get('withdrawals', "Admin\AdminWithdrawal@withdrawals")->name('withdrawals');
 
 });
 

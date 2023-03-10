@@ -25,4 +25,11 @@ class AdminDeposits extends Controller
         Mail::to($deposit->user->email)->send(new ApproveDeposit($deposit));
         return redirect()->back();
     }
+
+    public function deleteDeposit($id)
+    {
+        $deposit = Deposit::findOrFail($id);
+        $deposit->delete();
+        return redirect()->back();
+    }
 }

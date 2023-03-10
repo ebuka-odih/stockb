@@ -24,4 +24,20 @@ class AdminController extends Controller
     {
         return view('admin.site-setting');
     }
+
+    public function addDeposit()
+    {
+        $users = User::where('admin', 0)->get();
+        return view('admin.user.add-deposit', compact('users'));
+    }
+
+    public function adminProDeposit(Request $request)
+    {
+        $deposit = new Deposit();
+        $deposit->amount = $request->amount;
+        $deposit->user_id = $request->user_id;
+        $deposit->payment_method_id = $request->payment_method_id;
+        $deposit->save();
+        return redirect()->back()->with('success', "Deposited Successfully");
+    }
 }
