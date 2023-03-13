@@ -19,7 +19,7 @@
                                     </div>
                                     <div class="nk-modal-action-lg">
                                         <ul class="btn-group gx-4">
-                                            <li><a href="html/crypto/buy-sell.html" class="btn btn-lg btn-mw btn-primary">Buy Again</a></li>
+                                            <li><a href="{{ route('user.stocks') }}" class="btn btn-lg btn-mw btn-primary">Buy Stock</a></li>
                                         </ul>
                                     </div>
                                 </div>

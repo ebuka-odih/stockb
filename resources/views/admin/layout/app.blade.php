@@ -138,7 +138,7 @@
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link active" href="{{ route('user.dashboard') }}">
+                        <a class="nav-main-link active" target="_blank" href="{{ route('user.dashboard') }}">
                             <i class="nav-main-link-icon fa fa-user-alt-slash"></i>
                             <span class="nav-main-link-name">Client Dashboard</span>
                         </a>
@@ -158,10 +158,30 @@
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="#">
-                            <i class="nav-main-link-icon fa fa-money-bill"></i>
-                            <span class="nav-main-link-name">Purchased Stocks</span>
+                        <a class="nav-main-link" href="{{ route('admin.fundingHistory') }}">
+                            <i class="nav-main-link-icon fa fa-money-check"></i>
+                            <span class="nav-main-link-name">Funding</span>
                         </a>
+                    </li>
+
+                    <li class="nav-main-item">
+                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                            <i class="nav-main-link-icon fa fa-money-bill"></i>
+                            <span class="nav-main-link-name">Purchased Assets</span>
+                        </a>
+                        <ul class="nav-main-submenu">
+                            <li class="nav-main-item">
+                                <a class="nav-main-link" href="{{ route('admin.purchasedStocks') }}">
+                                    <span class="nav-main-link-name"> Stocks</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link" href="{{ route('admin.purchasedCrypto') }}">
+                                    <span class="nav-main-link-name"> Crypto</span>
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
                     <li class="nav-main-item">
                         <a class="nav-main-link"  href="{{ route('admin.users') }}">
@@ -219,7 +239,7 @@
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link"  href="#">
+                        <a class="nav-main-link"  href="{{ route('admin.fund') }}">
                             <i class="nav-main-link-icon fa fa-wrench"></i>
                             <span class="nav-main-link-name">Fund User</span>
                         </a>

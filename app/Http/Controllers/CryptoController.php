@@ -39,6 +39,13 @@ class CryptoController extends Controller
         $user->balance -= $request->amount;
         $user->investment_acct += $request->amount;
         $user->save();
-        return redirect()->route('user.success', $invest->id);
+        return redirect()->route('user.crypto.success', $invest->id);
     }
+
+    public function success($id)
+    {
+        $crypto = PurchasedCrypto::findOrFail($id);
+        return view('dashboard.crypto.success', compact('crypto'));
+    }
+
 }

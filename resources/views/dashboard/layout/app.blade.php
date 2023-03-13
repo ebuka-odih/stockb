@@ -41,29 +41,22 @@
                             <div class="user-account-info between-center">
                                 <div class="user-account-main">
                                     <h6 class="overline-title-alt">Available Balance</h6>
-                                    <div class="user-balance">2.014095 <small class="currency currency-btc">BTC</small></div>
-                                    <div class="user-balance-alt">18,934.84 <span class="currency currency-btc">BTC</span></div>
+                                    <div class="user-balance">@convert(auth()->user()->balance) <small class="currency currency-btc">{{ auth()->user()->currency }}</small></div>
+{{--                                    <div class="user-balance-alt">18,934.84 <span class="currency currency-btc">BTC</span></div>--}}
                                 </div>
                                 <a href="#" class="btn btn-white btn-icon btn-light"><em class="icon ni ni-line-chart"></em></a>
                             </div>
                             <ul class="user-account-data gy-1">
                                 <li>
                                     <div class="user-account-label">
-                                        <span class="sub-text">Profits (7d)</span>
+                                        <span class="sub-text">Profits</span>
                                     </div>
                                     <div class="user-account-value">
-                                        <span class="lead-text">+ 0.0526 <span class="currency currency-btc">BTC</span></span>
-                                        <span class="text-success ms-2">3.1% <em class="icon ni ni-arrow-long-up"></em></span>
+                                        <span class="lead-text">+ {{ auth()->user()->profit }} <span class="currency currency-btc">{{ auth()->user()->currency }}</span></span>
+                                        <span class="text-success ms-2"><em class="icon ni ni-arrow-long-up"></em></span>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="user-account-label">
-                                        <span class="sub-text">Deposit in orders</span>
-                                    </div>
-                                    <div class="user-account-value">
-                                        <span class="sub-text">0.005400 <span class="currency currency-btc">BTC</span></span>
-                                    </div>
-                                </li>
+
                             </ul>
                             <div class="user-account-actions">
                                 <ul class="g-3">
@@ -93,19 +86,19 @@
                                 <div class="user-account-info between-center">
                                     <div class="user-account-main">
                                         <h6 class="overline-title-alt">Available Balance</h6>
-                                        <div class="user-balance">2.014095 <small class="currency currency-btc">BTC</small></div>
-                                        <div class="user-balance-alt">18,934.84 <span class="currency currency-btc">BTC</span></div>
+                                        <div class="user-balance">{{ auth()->user()->currency }} <small class="currency currency-btc">{{ auth()->user()->currency }}</small></div>
+{{--                                        <div class="user-balance-alt">18,934.84 <span class="currency currency-btc">BTC</span></div>--}}
                                     </div>
                                     <a href="#" class="btn btn-icon btn-light"><em class="icon ni ni-line-chart"></em></a>
                                 </div>
                                 <ul class="user-account-data">
                                     <li>
                                         <div class="user-account-label">
-                                            <span class="sub-text">Profits (7d)</span>
+                                            <span class="sub-text">Profits</span>
                                         </div>
                                         <div class="user-account-value">
-                                            <span class="lead-text">+ 0.0526 <span class="currency currency-btc">BTC</span></span>
-                                            <span class="text-success ms-2">3.1% <em class="icon ni ni-arrow-long-up"></em></span>
+                                            <span class="lead-text">+ {{ auth()->user()->profit }} <span class="currency currency-btc">{{ auth()->user()->currency }}</span></span>
+                                            <span class="text-success ms-2"><em class="icon ni ni-arrow-long-up"></em></span>
                                         </div>
                                     </li>
                                     <li>
@@ -176,6 +169,12 @@
                                     <a href="html/crypto/order-history.html" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-repeat"></em></span>
                                         <span class="nk-menu-text">Orders</span>
+                                    </a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="html/crypto/order-history.html" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-share-alt"></em></span>
+                                        <span class="nk-menu-text">Auto Trader</span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
@@ -347,8 +346,8 @@
                                                 <em class="icon ni ni-user-alt"></em>
                                             </div>
                                             <div class="user-info d-none d-md-block">
-                                                <div class="user-status user-status-unverified">Unverified</div>
-                                                <div class="user-name dropdown-indicator">Abu Bin Ishityak</div>
+                                                <div>{!! auth()->user()->verifiedUser() !!}</div>
+                                                <div class="user-name dropdown-indicator">{{ auth()->user()->name }}</div>
                                             </div>
                                         </div>
                                     </a>
@@ -356,7 +355,7 @@
                                         <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                             <div class="user-card">
                                                 <div class="user-avatar">
-                                                    <span>AB</span>
+                                                    <em class="icon ni ni-user-alt"></em>
                                                 </div>
                                                 <div class="user-info">
                                                     <span class="lead-text">{{ auth()->user()->name }}</span>
@@ -367,8 +366,8 @@
                                         <div class="dropdown-inner user-account-info">
                                             <h6 class="overline-title-alt">Nio Wallet Account</h6>
                                             <div class="user-balance">{{ auth()->user()->balance }} <small class="currency currency-btc">{{ auth()->user()->currency }}</small></div>
-                                            <div class="user-balance-sub">Locked <span>0.344939 <span class="currency currency-btc">BTC</span></span></div>
-                                            <a href="#" class="link"><span>Withdraw Funds</span> <em class="icon ni ni-wallet-out"></em></a>
+                                            <br>
+                                            <a href="" class="link"><span>Withdraw Funds</span> <em class="icon ni ni-wallet-out"></em></a>
                                         </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">

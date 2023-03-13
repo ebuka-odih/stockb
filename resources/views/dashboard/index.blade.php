@@ -83,10 +83,10 @@
                                                     <div class="nk-wgw-icon">
                                                         <em class="icon ni ni-sign-btc"></em>
                                                     </div>
-                                                    <h5 class="nk-wgw-title title">NioWallet</h5>
+                                                    <h5 class="nk-wgw-title title">{{ $item->stock->name }}</h5>
                                                 </div>
                                                 <div class="nk-wgw-balance">
-                                                    <div class="amount">4.434953<span class="currency currency-nio">NIO</span></div>
+                                                    <div class="amount">{{ $item->amount }}<span class="currency currency-nio">{{ $item->user->currency }}</span></div>
                                                 </div>
                                             </a>
                                         </div>
@@ -124,10 +124,10 @@
                                                     <div class="nk-wgw-icon">
                                                         <em class="icon ni ni-sign-btc"></em>
                                                     </div>
-                                                    <h5 class="nk-wgw-title title">NioWallet</h5>
+                                                    <h5 class="nk-wgw-title title">{{ $item->crypto->name }}</h5>
                                                 </div>
                                                 <div class="nk-wgw-balance">
-                                                    <div class="amount">4.434953<span class="currency currency-nio">NIO</span></div>
+                                                    <div class="amount">{{ $item->amount }}<span class="currency currency-nio">{{ $item->user->currency }}</span></div>
                                                 </div>
                                             </a>
                                         </div>

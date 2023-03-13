@@ -151,7 +151,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="nk-block-content text-center text-lg-start">
-                                    <p class="text-soft">© 2022 Dashlite. All Rights Reserved.</p>
+                                    <p class="text-soft">© {{ \Carbon\Carbon::now()->year }} {{ env('APP_NAME') }}. All Rights Reserved.</p>
                                 </div>
                             </div>
                         </div>

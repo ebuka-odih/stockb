@@ -15,11 +15,11 @@
                                     <em class="nk-modal-icon icon icon-circle icon-circle-xxl ni ni-check bg-success"></em>
                                     <h4 class="nk-modal-title">Purchased Successfully!</h4>
                                     <div class="nk-modal-text">
-                                        <p class="caption-text">You’ve successfully bought <strong>{{ $stock->amount }} {{ auth()->user()->currency }}</strong> of <strong class="badge bg-danger">{{ $stock->stock->name }}</strong>.</p>
+                                        <p class="caption-text">You’ve successfully bought <strong>{{ $crypto->amount }} {{ auth()->user()->currency }}</strong> of <strong class="badge bg-danger">{{ $crypto->crypto->name }}</strong>.</p>
                                     </div>
                                     <div class="nk-modal-action-lg">
                                         <ul class="btn-group gx-4">
-                                            <li><a href="html/crypto/buy-sell.html" class="btn btn-lg btn-mw btn-primary">Buy Again</a></li>
+                                            <li><a href="{{ route('user.crypto') }}" class="btn btn-lg btn-mw btn-primary">Buy Again</a></li>
                                         </ul>
                                     </div>
                                 </div>

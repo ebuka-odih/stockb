@@ -32,6 +32,9 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
     Route::get('stock/{id}/success', "StockController@success")->name('success');
 
     Route::get('crypto-asset', 'CryptoController@crypto')->name('crypto');
-    Route::get('invest/{id}/crypto', 'CryptoController@invest')->name('invest');
+    Route::get('invest/{id}/crypto', 'CryptoController@invest')->name('invest_crypto');
+    Route::post('invest/crypto', 'CryptoController@investCrypto')->name('investCrypto');
+    Route::get('crypto/{id}/success', "CryptoController@success")->name('crypto.success');
+
 
 });

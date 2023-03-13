@@ -58,7 +58,7 @@
                                                         <span class="tb-status text-success">Active <span class="dot dot-success d-md-none ms-1"></span></span>
                                                     </td>
                                                     <td class="nk-tb-col ">
-                                                        <a  href="{{ route('user.invest', $item->id) }}"><em class="icon ni ni-arrow-up-right"></em><span>Invest</span></a>
+                                                        <a  href="{{ route('user.invest_crypto', $item->id) }}"><em class="icon ni ni-arrow-up-right"></em><span>Invest</span></a>
 
                                                     </td>
 

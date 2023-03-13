@@ -29,7 +29,8 @@
                                     <i class="far fa-clock"></i>
                                 </th>
                                 <th>User/Bal</th>
-                                <th style="width: 30%;">Amount</th>
+                                <th >Amount</th>
+                                <th >Deposit Method</th>
                                 <th style="width: 15%;">Access</th>
                                 <th class="text-center" style="width: 100px;">Actions</th>
                             </tr>
@@ -44,6 +45,7 @@
                                     <a href="{{ route('admin.viewUser', $item->user->id) }}">{{ $item->user->name }} (@convert($item->user->balance) {{ $item->user->currency }})</a>
                                 </td>
                                 <td>{{ $item->amount }} {{ $item->user->currency }}</td>
+                                <td>{{ optional($item->payment_method)->name }} </td>
                                 <td>
                                     {!! $item->status() !!}
                                 </td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Deposit;
 use App\Http\Controllers\Controller;
+use App\PaymentMethod;
 use App\Stock;
 use App\User;
 use App\Withdrawal;
@@ -27,8 +28,9 @@ class AdminController extends Controller
 
     public function addDeposit()
     {
-        $users = User::where('admin', 0)->get();
-        return view('admin.user.add-deposit', compact('users'));
+        $users = User::all();
+        $payment_m = PaymentMethod::all();
+        return view('admin.user.add-deposit', compact('users', 'payment_m'));
     }
 
     public function adminProDeposit(Request $request)

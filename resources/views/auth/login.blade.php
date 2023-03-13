@@ -83,15 +83,9 @@
                                     <button class="btn btn-lg btn-primary btn-block">Sign in</button>
                                 </div>
                             </form>
-                            <div class="form-note-s2 text-center pt-4"> New on our platform? <a href="html/pages/auths/auth-register-v2.html">Create an account</a>
+                            <div class="form-note-s2 text-center pt-4"> New on our platform? <a href="{{ route('register') }}">Create an account</a>
                             </div>
-                            <div class="text-center pt-4 pb-3">
-                                <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
-                            </div>
-                            <ul class="nav justify-center gx-4">
-                                <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
-                            </ul>
+
                         </div>
                     </div>
                 </div>
@@ -144,7 +138,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="nk-block-content text-center text-lg-start">
-                                    <p class="text-soft">&copy; 2022 Dashlite. All Rights Reserved.</p>
+                                    <p class="text-soft">&copy; {{ \Carbon\Carbon::now()->year }} {{ env('APP_NAME') }}. All Rights Reserved.</p>
                                 </div>
                             </div>
                         </div>

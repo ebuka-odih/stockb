@@ -55,11 +55,10 @@
                             <div class="col-lg-6 col-xl-6">
                                 <div class="mb-4">
                                     <label class="form-label"  for="example-email-input">Deposit Type</label>
-                                    <select name="payment_method_id" id="" class="form-control ">
-                                        <option disabled selected>Select Deposit Type</option>
-                                        <option value="1">Bank Transfer</option>
-                                        <option value="2">Crypto Deposit</option>
-                                        {{--                                        <option value="Profit">Profit</option>--}}
+                                    <select name="payment_method_id" class="form-control form-control-lg" id="">
+                                        @foreach($payment_m as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

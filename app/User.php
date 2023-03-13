@@ -50,10 +50,11 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         if ($this->email_verified_at != null)
         {
-            return "<span class='badge bg-primary'>Verified</span>";
+            return "<span class='user-status user-status-verified'>Verified</span>";
         }
-        return "<span class='badge bg-warning'>Not Verified</span>";
+        return "<span class='user-status user-status-unverified'>Unverified</span>";
     }
+
     public function status()
     {
         if ($this->status < 0){
@@ -65,4 +66,17 @@ class User extends Authenticatable implements MustVerifyEmail
         }
     }
 
+    public function purchased_stocks()
+    {
+        return $this->hasMany(PurchasedStock::class, 'user_id');
+    }
+
+    public function payment_method()
+    {
+        return $this->hasMany(PaymentMethod::class, 'user_id');
+    }
+    public function funding()
+    {
+        return $this->hasMany(Funding::class, 'user_id');
+    }
 }

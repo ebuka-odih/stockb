@@ -32,7 +32,7 @@
                 </div><!-- .buysell-nav -->
 
                 <div class="buysell-block">
-                    <form action="{{ route('user.investStock') }}" method="POST" class="buysell-form">
+                    <form action="{{ route('user.investCrypto') }}" method="POST" class="buysell-form">
                         @csrf
                         @if(session()->has('failed'))
                             <div class="alert alert-danger">
